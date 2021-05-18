@@ -26,3 +26,14 @@ void	ft_bzero(void *s, size_t n)
 {
 	ft_memset(s, 0, n);
 }
+
+void	*ft_memcpy(char *dest, const char *src, size_t n)
+{
+	const char	*it;
+
+	it = src + n;
+	dest += n;
+	while (it-- != src)
+		*--dest = *it;
+	return (dest);
+}
