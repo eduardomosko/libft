@@ -37,3 +37,17 @@ void	*ft_memcpy(char *dest, const char *src, size_t n)
 		*--dest = *it;
 	return (dest);
 }
+
+void	*ft_memccpy(char *dest, const char *src, int c, size_t n)
+{
+	const char	*end;
+
+	end = src + n;
+	while (src != end)
+	{
+		*dest = *src++;
+		if (*dest++ == c)
+			return (dest);
+	}
+	return (NULL);
+}
