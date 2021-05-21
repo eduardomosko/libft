@@ -7,7 +7,7 @@ CC := clang
 SRCS := memory.c
 OBJS := $(SRCS:%.c=%.o)
 
-TEST_SRCS := main.c memory.c memccpy.c
+TEST_SRCS := main.c memory.c memccpy.c memmove.c
 TEST_SRCS := $(TEST_SRCS:%=tests/%)
 TEST_OBJS := $(TEST_SRCS:%.c=%.o)
 
