@@ -24,19 +24,18 @@ size_t	ft_strlen(const char *s)
 
 int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	const unsigned char	*it1;
-	const unsigned char	*it2;
-	const unsigned char	*end;
+	size_t	i;
 
-	it1 = (unsigned char *) s1;
-	it2 = (unsigned char *) s2;
-	end = (unsigned char *) s1 + n - 1;
-	while (it1 != end && *it1 != '\0' && *it2 != '\0' && *it1 == *it2)
+	i = 0;
+	if (n == 0)
+		return (0);
+	while (*s1 != '\0' && *s2 != '\0' && *s1 == *s2 && i < n - 1)
 	{
-		it1++;
-		it2++;
+		++s1;
+		++s2;
+		++i;
 	}
-	return ((*it1 - *it2) * (n != 0));
+	return (((unsigned char)*s1) - ((unsigned char)*s2));
 }
 
 size_t	ft_strlcpy(char *dest, const char *src, size_t size)
