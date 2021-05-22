@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_test.h"
+#include "libft.h"
 
 void	*ft_memset(void *s, int c, size_t n)
 {
@@ -27,46 +27,37 @@ void	ft_bzero(void *s, size_t n)
 	ft_memset(s, 0, n);
 }
 
-void	*ft_memcpy(char *dest, const char *src, size_t n)
+void	*ft_memcpy(void *dest, const void *src, size_t n)
 {
 	const char	*it;
+	char		*itdest;
 
 	it = src + n;
-	dest += n;
+	itdest = dest + n;
 	while (it-- != src)
-		*--dest = *it;
+		*--itdest = *it;
 	return (dest);
 }
 
-void	*ft_memccpy(char *dest, const char *src, int c, size_t n)
+void	*ft_memccpy(void *dest, const void *src, int c, size_t n)
 {
 	const char	*end;
+	const char	*it;
+	char		*itdest;
 
+	it = src;
+	itdest = dest;
 	end = src + n;
-	while (src != end)
+	while (it != end)
 	{
-		*dest = *src++;
-		if (*dest++ == c)
-			return (dest);
+		*itdest = *it++;
+		if (*itdest++ == c)
+			return (itdest);
 	}
 	return (NULL);
 }
 
-/*
- *  DESCRIPTION
- *
- *  The  memmove() function copies n bytes from memory area src to
- *  memory area dest. The memory areas may overlap: copying takes place as
- *  though the bytes in src are first copied into a temporary array that does
- *  not overlap src or dest, and the bytes are then copied from the temporary
- *  array to dest.
- *  
- *  RETURN VALUE
- *
- *  The memmove() function returns a pointer to dest.
- */
-
-void	*ft_memmove(char *dest, const char *src, size_t n)
+void	*ft_memmove(void *dest, const void *src, size_t n)
 {
 	char		*itdest;
 	const char	*end;
@@ -78,7 +69,7 @@ void	*ft_memmove(char *dest, const char *src, size_t n)
 	itdest = (dest) + (n - 1) * (dir == -1);
 	while (src != end)
 	{
-		*itdest = *src;
+		*itdest = *(const char *)src;
 		src += dir;
 		itdest += dir;
 	}
