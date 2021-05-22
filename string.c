@@ -81,3 +81,16 @@ size_t	ft_strlcat(char *dest, const char *src, size_t size)
 		++src && ++size_attempt;
 	return (size_attempt);
 }
+
+char	*ft_strchr(const char *s, int c)
+{
+	unsigned char	target;
+	unsigned char	*mem;
+
+	target = c;
+	mem = (unsigned char *)s;
+	while (*mem)
+		if (*mem++ == target)
+			return ((char *)--mem);
+	return (NULL);
+}

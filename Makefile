@@ -7,7 +7,7 @@ CC := clang
 SRCS := memory1.c memory2.c string.c
 OBJS := $(SRCS:%.c=%.o)
 
-TEST_SRCS := main.c memory.c memccpy.c memmove.c string.c
+TEST_SRCS := main.c memory.c memccpy.c memmove.c string.c strlcat.c
 TEST_SRCS := $(TEST_SRCS:%=tests/%)
 TEST_OBJS := $(TEST_SRCS:%.c=%.o)
 
@@ -32,5 +32,5 @@ test: test.out
 	./test.out
 
 test.out: $(TEST_OBJS) $(NAME)
-	$(CC) $(CFLAGS) $^ -o $@
+	$(CC) $(CFLAGS) $^ -o $@ -lbsd
 
