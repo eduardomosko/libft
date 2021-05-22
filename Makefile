@@ -20,8 +20,7 @@ clean:
 fclean: clean
 	rm $(NAME)
 
-re: fclean all
-
+re: clean all
 
 $(NAME): $(OBJS) libft.h
 	ar rcs $(NAME) $(OBJS)
@@ -29,9 +28,9 @@ $(NAME): $(OBJS) libft.h
 %.o: %.c libft.h
 	$(CC) $(CFLAGS) -c -o $@ $<
 
-test: test.out
-	./test.out
-
-test.out: $(TEST_OBJS) $(NAME)
-	$(CC) $(CFLAGS) $^ -o $@
+# test: test.out
+# 	./test.out
+# 
+# test.out: $(TEST_OBJS) $(NAME)
+# 	$(CC) $(CFLAGS) $^ -o $@
 

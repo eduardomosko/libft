@@ -19,13 +19,13 @@ void	*ft_memchr(const void *s, int c, size_t n)
 	unsigned char	target;
 
 	mem = (unsigned char *) s;
-	end = mem + n;
+	end = mem + n - 1;
 	target = c;
 	while (mem != end)
 	{
 		if (*mem == target)
 			return (mem);
-		mem++ && end++;
+		mem++;
 	}
 	return (NULL);
 }
@@ -38,7 +38,7 @@ int	ft_memcmp(const void *s1, const void *s2, size_t n)
 
 	it1 = s1;
 	it2 = s2;
-	end = s1 + n;
+	end = s1 + n - 1;
 	while (it1 != end && *it1 == *it2)
 	{
 		it1++;
