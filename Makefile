@@ -4,10 +4,10 @@ CFLAGS := -Wall -Werror -Wextra
 NAME := libft.a
 CC := clang
 
-SRCS := memory1.c memory2.c
+SRCS := memory1.c memory2.c string.c
 OBJS := $(SRCS:%.c=%.o)
 
-TEST_SRCS := main.c memory.c memccpy.c memmove.c
+TEST_SRCS := main.c memory.c memccpy.c memmove.c string.c
 TEST_SRCS := $(TEST_SRCS:%=tests/%)
 TEST_OBJS := $(TEST_SRCS:%.c=%.o)
 
