@@ -4,7 +4,7 @@ CFLAGS := -Wall -Werror -Wextra
 NAME := libft.a
 CC := clang
 
-SRCS := memory.c
+SRCS := memory1.c memory2.c
 OBJS := $(SRCS:%.c=%.o)
 
 TEST_SRCS := main.c memory.c memccpy.c memmove.c
