@@ -61,7 +61,7 @@ int		ft_tolower(int c);
  * libc Memory
  */
 
-void	*calloc(size_t nmemb, size_t size);
-char	*strdup(const char *s);
+void	*ft_calloc(size_t nmemb, size_t size);
+char	*ft_strdup(const char *s);
 
 #endif

@@ -10,6 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdint.h>
 #include "libft.h"
 
 void	*ft_memchr(const void *s, int c, size_t n)
@@ -47,4 +48,31 @@ int	ft_memcmp(const void *s1, const void *s2, size_t n)
 		++i;
 	}
 	return (((unsigned char)*it1) - ((unsigned char)*it2));
+}
+
+void	*ft_calloc(size_t nmemb, size_t size)
+{
+	void	*mem;
+
+	if (SIZE_MAX / nmemb < size)
+		return (NULL);
+	size *= nmemb;
+	mem = malloc(size);
+	if (mem == NULL)
+		return (NULL);
+	ft_bzero(mem, size);
+	return (mem);
+}
+
+char	*ft_strdup(const char *s)
+{
+	size_t	len;
+	char	*dup;
+
+	len = ft_strlen(s);
+	dup = malloc(len + 1);
+	if (dup == NULL)
+		return (NULL);
+	ft_strlcpy(dup, s, len + 1);
+	return (dup);
 }
