@@ -41,17 +41,19 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 
 void	*ft_memccpy(void *dest, const void *src, int c, size_t n)
 {
-	const char	*end;
-	const char	*it;
-	char		*itdest;
+	unsigned char	target;
+	const char		*end;
+	const char		*it;
+	char			*itdest;
 
 	it = src;
 	itdest = dest;
 	end = src + n;
+	target = c;
 	while (it != end)
 	{
 		*itdest = *it++;
-		if (*itdest++ == c)
+		if (*itdest++ == target)
 			return (itdest);
 	}
 	return (NULL);
