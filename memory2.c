@@ -73,6 +73,6 @@ char	*ft_strdup(const char *s)
 	dup = malloc(len + 1);
 	if (dup == NULL)
 		return (NULL);
-	ft_strlcpy(dup, s, len + 1);
+	ft_memcpy(dup, s, len + 1);
 	return (dup);
 }
