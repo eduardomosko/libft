@@ -19,9 +19,11 @@ char	*ft_strrchr(const char *s, int c)
 	size_t			n;
 
 	n = ft_strlen(s);
+	target = c;
+	if (target == '\0')
+		return ((char *)s + n);
 	if (n == 0)
 		return (NULL);
-	target = c;
 	mem = (unsigned char *)s + n - 1;
 	while (n--)
 		if (*mem-- == target)

@@ -11,7 +11,7 @@ SRCS := memory1.c	\
 		ctype1.c	\
 		ctype2.c	\
 		fildes.c	\
-		number.c
+		strnbr.c
 
 
 OBJS := $(SRCS:%.c=%.o)

@@ -72,9 +72,11 @@ char	*ft_strchr(const char *s, int c)
 	unsigned char	*mem;
 
 	target = c;
-	mem = (unsigned char *)s;
+	mem = (unsigned char *) s;
 	while (*mem)
 		if (*mem++ == target)
 			return ((char *)--mem);
+	if (target == '\0')
+		return ((char *)mem);
 	return (NULL);
 }
