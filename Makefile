@@ -4,7 +4,7 @@ CFLAGS := -Wall -Werror -Wextra
 NAME := libft.a
 CC := clang
 
-SRCS := memory1.c memory2.c string1.c string2.c
+SRCS := memory1.c memory2.c string1.c string2.c chartype.c
 OBJS := $(SRCS:%.c=%.o)
 
 
