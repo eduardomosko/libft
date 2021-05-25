@@ -12,7 +12,8 @@ SRCS := memory1.c	\
 		ctype2.c	\
 		fildes.c	\
 		strnbr.c	\
-		strproc.c
+		strproc.c	\
+		strsplit.c
 
 
 OBJS := $(SRCS:%.c=%.o)

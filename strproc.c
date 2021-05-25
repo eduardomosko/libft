@@ -10,6 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdint.h>
 #include "libft.h"
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
@@ -49,6 +50,29 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	return (ret);
 }
 
-char	*ft_strtrim(char const *s1, char const *set);
-char	**ft_split(char const *s, char c);
-char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
+char	*ft_strtrim(char const *s1, char const *set)
+{
+	char		*ret;
+	uint8_t		lookup[256];
+	size_t		len;
+
+	ft_bzero(lookup, 256);
+	while (*set)
+		lookup[*(unsigned char *)set++] = 1;
+	while (lookup[*(unsigned char *)s1])
+		s1++;
+	len = ft_strlen(s1);
+	while (len && lookup[(unsigned char)s1[len - 1]])
+		len--;
+	ret = malloc(len + 1);
+	ft_memcpy(ret, s1, len);
+	ret[len] = 0;
+	return (ret);
+}
+
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
+{
+	UNUSED(s);
+	UNUSED(f);
+	return (NULL);
+}
