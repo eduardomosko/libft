@@ -12,11 +12,13 @@
 
 #include "libft.h"
 
-static int	how_many_digits(int nb)
+static int	how_many_chars(int nb)
 {
 	int	count;
 
 	count = 0;
+	if (nb < 0)
+		count = 1;
 	while (nb / 10)
 	{
 		nb = nb / 10;
@@ -56,8 +58,10 @@ char	*ft_itoa(int n)
 	size_t	len;
 	char	*ret;
 
-	len = how_many_digits(n);
+	len = how_many_chars(n);
 	ret = malloc(len + 1);
+	if (!ret)
+		return (NULL);
 	put_nbr_into_str(n, ret);
 	return (ret);
 }

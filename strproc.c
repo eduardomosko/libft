@@ -65,6 +65,8 @@ char	*ft_strtrim(char const *s1, char const *set)
 	while (len && lookup[(unsigned char)s1[len - 1]])
 		len--;
 	ret = malloc(len + 1);
+	if (!ret)
+		return (NULL);
 	ft_memcpy(ret, s1, len);
 	ret[len] = 0;
 	return (ret);
@@ -78,6 +80,8 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 
 	len = ft_strlen(s);
 	ret = malloc(len + 1);
+	if (!ret)
+		return (NULL);
 	i = 0;
 	while (i < len)
 	{
