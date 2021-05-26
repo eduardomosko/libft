@@ -72,7 +72,18 @@ char	*ft_strtrim(char const *s1, char const *set)
 
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	UNUSED(s);
-	UNUSED(f);
-	return (NULL);
+	char		*ret;
+	size_t		len;
+	size_t		i;
+
+	len = ft_strlen(s);
+	ret = malloc(len + 1);
+	i = 0;
+	while (i < len)
+	{
+		ret[i] = f(i, s[i]);
+		++i;
+	}
+	ret[i] = 0;
+	return (ret);
 }

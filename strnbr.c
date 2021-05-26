@@ -51,11 +51,21 @@ static void	put_nbr_into_str(int nb, char *s)
 	*s = '\0';
 }
 
+char	*ft_itoa(int n)
+{
+	size_t	len;
+	char	*ret;
+
+	len = how_many_digits(n);
+	ret = malloc(len + 1);
+	put_nbr_into_str(n, ret);
+	return (ret);
+}
+
 void	ft_putnbr_fd(int n, int fd)
 {
 	char	buf[32];
 
-	UNUSED(how_many_digits);
 	put_nbr_into_str(n, buf);
 	ft_putstr_fd(buf, fd);
 }
