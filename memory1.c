@@ -32,6 +32,8 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 	const char	*it;
 	char		*itdest;
 
+	if (!dest || !src)
+		return (dest);
 	it = src + n;
 	itdest = dest + n;
 	while (it-- != src)
@@ -65,6 +67,8 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 	const char	*end;
 	int			dir;
 
+	if (!dest || !src)
+		return (dest);
 	dir = -1 + 2 * (dest < src);
 	end = (src - 1) + (n + 1) * (dir == 1);
 	src = (src) + (n - 1) * (dir == -1);
