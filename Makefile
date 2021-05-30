@@ -15,14 +15,17 @@ SRCS := memory1.c	\
 		strproc.c	\
 		strsplit.c
 
+BONUS_SRCS := list1.c	\
+			  list2.c
 
 OBJS := $(SRCS:%.c=%.o)
+BONUS_OBJS := $(BONUS_SRCS:%.c=%.o)
 
 
 all: $(NAME)
 
 clean:
-	rm -f $(OBJS)
+	rm -f $(BONUS_OBJS) $(OBJS)
 
 fclean: clean
 	rm -f $(NAME)
@@ -34,4 +37,7 @@ $(NAME): $(OBJS) libft.h
 
 %.o: %.c libft.h
 	$(CC) $(CFLAGS) -c -o $@ $<
+
+bonus: $(NAME) $(BONUS_OBJS)
+	ar rs $(NAME) $(BONUS_OBJS)
 
