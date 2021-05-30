@@ -41,14 +41,15 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 		return ((char *)big);
 	if (len == 0)
 		return (NULL);
-	while (*big && len--)
+	while (*big && len)
 	{
 		itlen = len;
 		itbig = big;
 		itlil = little;
-		while (*itlil && *itbig && *itlil++ == *itbig++ && --itlen)
+		while (*itlil && *itbig && *itlil++ == *itbig++ && itlen--)
 			if (*itlil == 0)
 				return ((char *) big);
+		len--;
 		big++;
 	}
 	return (NULL);
