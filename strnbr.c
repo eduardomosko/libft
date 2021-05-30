@@ -19,7 +19,7 @@ static int	how_many_chars(int nb)
 	count = 0;
 	if (nb <= 0)
 		count = 1;
-	while (nb > 9)
+	while (nb / 10)
 	{
 		nb /= 10;
 		++count;
