@@ -17,11 +17,11 @@ static int	how_many_chars(int nb)
 	int	count;
 
 	count = 0;
-	if (nb < 0)
+	if (nb <= 0)
 		count = 1;
-	while (nb / 10)
+	while (nb > 9)
 	{
-		nb = nb / 10;
+		nb /= 10;
 		++count;
 	}
 	return (count);
