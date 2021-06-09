@@ -1,27 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ctype2.c                                           :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: emendes- <emendes-@students.42sp.org.br>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/23 11:38:38 by emendes-          #+#    #+#             */
-/*   Updated: 2021/05/23 11:38:38 by emendes-         ###   ########.fr       */
+/*   Created: 2021/06/08 21:59:32 by emendes-          #+#    #+#             */
+/*   Updated: 2021/06/08 22:01:24 by emendes-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_tolower(int c)
+size_t	ft_strlen(const char *s)
 {
-	if ('A' <= c && c <= 'Z')
-		return (c - 'A' + 'a');
-	return (c);
-}
+	size_t	len;
 
-int	ft_toupper(int c)
-{
-	if ('a' <= c && c <= 'z')
-		return (c - 'a' + 'A');
-	return (c);
+	len = 0;
+	while (*s++)
+		len++;
+	return (len);
 }
