@@ -19,7 +19,10 @@ size_t	ft_strlcat(char *dest, const char *src, size_t size)
 
 	size_attempt = 0;
 	while (*dest != '\0' && size_attempt < size)
-		++dest && ++size_attempt;
+	{
+		++dest;
+		++size_attempt;
+	}
 	should_null_terminate = size_attempt < size;
 	while (*src != '\0' && size_attempt < size)
 	{
@@ -31,6 +34,9 @@ size_t	ft_strlcat(char *dest, const char *src, size_t size)
 	if (should_null_terminate)
 		*dest = '\0';
 	while (*src != '\0')
-		++src && ++size_attempt;
+	{
+		++src;
+		++size_attempt;
+	}
 	return (size_attempt);
 }
