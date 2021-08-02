@@ -13,8 +13,6 @@
 #ifndef LIBFT_H
 # define LIBFT_H
 
-# define UNUSED (void)
-
 # include <stdlib.h>
 
 /*
