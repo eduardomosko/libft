@@ -22,9 +22,12 @@ size_t	ft_strlcpy(char *dest, const char *src, size_t size)
 		*dest++ = *src++;
 		++chars_copied;
 	}
-	if (chars_copied == size)
-		--dest;
-	*dest = '\0';
+	if (size != 0)
+	{
+		if (chars_copied == size)
+			--dest;
+		*dest = '\0';
+	}
 	while (*src != '\0')
 	{
 		++chars_copied;
