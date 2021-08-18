@@ -1,6 +1,6 @@
 .PHONY: all clean fclean re
 
-CFLAGS := -Wall -Werror -Wextra
+CFLAGS := -Wall -Werror -Wextra -O3
 NAME := libft.a
 CC := clang
 
@@ -37,21 +37,19 @@ SRCS := ft_atoi.c			\
 		ft_strtrim.c		\
 		ft_substr.c			\
 		ft_tolower.c		\
-		ft_toupper.c
-
-BONUS_SRCS :=	ft_lstadd_back.c	\
-				ft_lstadd_front.c	\
-				ft_lstnew.c			\
-				ft_lstmap.c			\
-				ft_lstclear.c		\
-				ft_lstlast.c		\
-				ft_lstdelone.c		\
-				ft_lstiter.c		\
-				ft_lstsize.c
+		ft_toupper.c		\
+		ft_lstadd_back.c	\
+		ft_lstadd_front.c	\
+		ft_lstnew.c			\
+		ft_lstmap.c			\
+		ft_lstclear.c		\
+		ft_lstlast.c		\
+		ft_lstdelone.c		\
+		ft_lstiter.c		\
+		ft_lstsize.c
 
 OBJS := $(SRCS:%.c=%.o)
 BONUS_OBJS := $(BONUS_SRCS:%.c=%.o)
-
 
 all: $(NAME)
 
@@ -68,7 +66,4 @@ $(NAME): $(OBJS) libft.h
 
 %.o: %.c libft.h
 	$(CC) $(CFLAGS) -c -o $@ $<
-
-bonus: $(NAME) $(BONUS_OBJS)
-	ar rs $(NAME) $(BONUS_OBJS)
 
